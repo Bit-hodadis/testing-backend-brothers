@@ -1,67 +1,75 @@
-Menu Extractor and Visualization by by Asrat
+## Brothers IT Web Management Content
+Welcome to the Brothers IT Web Management Content project! This repository contains the source code and documentation for managing the web content of Brothers IT.
 
-An implementation of a node based Menu Extractor using react flow GIF Preview
-Installation
-
-To get started with this application, you will need to follow these steps:
-
-    Clone the repository: git clone https://github.com/Asrat001/reactflow-menu-extraction
-    Install dependencies: npm install
-    Start the development server: npm run dev
-    Open the application in your browser at http://localhost:5173
-
-Usage
-
-The application allows users to create flow diagrams from a meanu text . The user can create multiple nodes and connect them with edges. Each node can be customized with a label.
-Directory Structure
-
-├── public
-├── src
-│   ├── assets
-│   ├── components
-│   │   ├── nodes
-│   │   ├── panels
-│   │   └── ui
-│   │   └── index.ts
-│   ├── config
-│   │   ├── site.ts
-│   │   └── store.ts
-│   ├── lib
-│   │   └── utils.ts
-│   ├── styles
-│   ├── App.tsx
-
-Terminology
-
-You can read about the terminology here but here is a quick summary:
-
-    Node: A node is a single element in the flow diagram. It can be connected to other nodes with edges.
-    Edge: An edge is a connection between two nodes. It can be used to connect two nodes together.
-    Graph: A graph is a collection of nodes and edges. A graph can have multiple nodes and edges.
-    Panel: A panel is a component that is used to change the settings of a node or add a new node to the graph.
-
+## Table of Contents
+Introduction
 Features
+Technologies Used
+Installation
+Usage
+Configuration
+Contributing
+Contact
+Introduction
+Brothers IT PLC Web Management Content is designed to streamline the process of managing and updating the web content for Brothers IT. This project provides a user-friendly interface for administrators to create, edit, and publish content across the website efficiently.
 
-Some of the key features of the application include:
+## Features
+-Content Management: Easily create, edit, and delete content.
+-User Authentication: Secure login and access control for administrators.
 
-    Creating multiple Nodes.
-    Creating Edges between Nodes.
-    Creating Nodes from a list of available options.
-    Change the settings of a Node.
-    Validating Graph Integrity.
-    Offline Functionality with PWA.
+-Media Management: Upload and manage image.
 
-Styling
+## Technologies Used
+Frontend:
 
-The application uses Tailwind CSS for styling.
-Add a new Node
+React.js
+Tailwind CSS
 
-Currently, the application only supports a single type of Node (Text). To add a new Node, you will need to follow these steps:
+React.js
+Backend:
 
-    Create a new file in the src/components/nodes directory for a new type of node.
-    Create a new file in the src/components/panel directory for a new setting panel.
-    Add the new Node to the nodeTypes object in the src/config/site file.
-    Add the new panel to the getPanel function in the src/components/panel file.
-    Add the update logic for the new Node in the zustand store in src/config/store.
+Node.js
+Express.js
+Postgresql
+Authentication:
 
-License: MIT
+JSON Web Tokens (JWT)
+DevOps:
+
+Docker
+
+Version Control:
+
+Git
+Installation
+To get started with the project, follow these steps:
+
+Clone the repository:
+
+sh
+Copy code
+git clone https://github.com/Hodadisbirhan/Brothers-CMS.git
+cd Brothers-CMS
+Install dependencies:
+
+sh
+Copy code
+npm install
+
+Start the development server:
+
+sh
+Copy code
+npm start
+Usage
+Running the Development Server
+sh
+Copy code
+npm start
+This command starts the application in development mode. Open http://localhost:3000 to view it in the browser.
+
+Building for Production
+sh
+Copy code
+npm run build
+This command builds the app for production to the build folder. It correctly bundles React in production mode and optimizes the build for the best performance.
