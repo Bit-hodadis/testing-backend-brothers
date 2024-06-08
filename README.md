@@ -14,36 +14,27 @@ Introduction
 Brothers IT PLC Web Management Content is designed to streamline the process of managing and updating the web content for Brothers IT. This project provides a user-friendly interface for administrators to create, edit, and publish content across the website efficiently.
 
 ## Features
- ""Content Management"": Easily create, edit, and delete content.
+-Content Management: Easily create, edit, and delete content.
 -User Authentication: Secure login and access control for administrators.
 
 -Media Management: Upload and manage image.
 
 ## Technologies Used
-Frontend:
-
-React.js
-Tailwind CSS
-
-React.js
-Backend:
-
-Node.js
-Express.js
-Postgresql
-Authentication:
-
-JSON Web Tokens (JWT)
-DevOps:
-
-Docker
-
-Version Control:
-
-Git
-Installation
-To get started with the project, follow these steps:
-
+**Frontend**:
+    React.js
+    Tailwind CSS
+**Backend**:
+    Node.js
+    Express.js
+    Postgresql
+**Authentication**:
+   JSON Web Tokens (JWT)
+**DevOps**:
+   Docker
+**Version Control**:
+  Git
+## Installation
+  To get started with the project, follow these steps:
 Clone the repository:
 
 sh
