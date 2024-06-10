@@ -12,7 +12,7 @@ export default function useFirebaseClient() {
       const name = file.split(",")[0];
       const getStorageReference = storageReference(
         storage,
-        `${path}/${name}{Date.now()}`
+        `${path}/${name}${Date.now()}`
       );
 
       const upload = await uploadString(
