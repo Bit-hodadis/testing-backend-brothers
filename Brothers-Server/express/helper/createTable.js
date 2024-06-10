@@ -37,7 +37,7 @@ const createTables = async () => {
     await client.query("ROLLBACK");
     console.error("Error creating tables:", error);
   } finally {
-    client.release();
+    if (client) client.release();
   }
 };
 

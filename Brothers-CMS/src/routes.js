@@ -38,6 +38,7 @@ import Users from "views/admin/users";
 import Testimonial from "views/admin/testimonial";
 import FormComponent from "views/admin/profile";
 import SetupAccount from "views/auth/setupAccount";
+import ContactUS from "views/admin/contact";
 
 const routes = [
   {
@@ -144,6 +145,13 @@ const routes = [
     path: "category",
     icon: <FaTags className="h-6 w-6" />,
     component: <Category />,
+  },
+  {
+    name: "Contact US",
+    layout: "/admin",
+    path: "contact",
+    icon: <FaTags className="h-6 w-6" />,
+    component: <ContactUS />,
   },
 ];
 export default routes;

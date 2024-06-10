@@ -128,7 +128,6 @@ const Form = ({ onClick }) => {
       <button className=" z-10  place-self-end rounded-md bg-blueSecondary px-16 py-2  text-sm font-semibold text-white">
         Save
       </button>
-      {JSON.stringify(publishedDate)}
     </form>
   );
 };
