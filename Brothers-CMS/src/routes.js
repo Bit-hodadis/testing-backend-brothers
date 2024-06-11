@@ -39,6 +39,7 @@ import Testimonial from "views/admin/testimonial";
 import FormComponent from "views/admin/profile";
 import SetupAccount from "views/auth/setupAccount";
 import ContactUS from "views/admin/contact";
+import UserProfile from "views/admin/userProfile";
 
 const routes = [
   {
@@ -49,9 +50,9 @@ const routes = [
     component: <MainDashboard />,
   },
   {
-    name: "Profile",
+    name: "Company",
     layout: "/admin",
-    path: "profile",
+    path: "company",
     icon: <FaUser className="h-6 w-6" />,
     component: <FormComponent />,
   },
@@ -152,6 +153,13 @@ const routes = [
     path: "contact",
     icon: <FaTags className="h-6 w-6" />,
     component: <ContactUS />,
+  },
+  {
+    name: "Profile",
+    layout: "/admin",
+    path: "user-profile",
+    icon: <FaTags className="h-6 w-6" />,
+    component: <UserProfile />,
   },
 ];
 export default routes;

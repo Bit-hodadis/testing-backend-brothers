@@ -53,6 +53,9 @@ const { getContactUS } = require("../handler/contactUS/getContactUs");
 const { setupPassword } = require("../handler/setupAccount");
 const { dashboard } = require("../handler/metaData/dashboard");
 const { subscribe } = require("../handler/subscribe/addSubscrib");
+const { getUserProfile } = require("../handler/getProfile");
+const { changeUserProfile } = require("../handler/changeUserProfile");
+const { changePassword } = require("../handler/changePassword");
 const router = express.Router();
 
 // authentication router handler
@@ -66,6 +69,9 @@ router.post("/logout", logOut);
 router.post("/resetPasswordVerify", verifyEmailToken, verifyReset);
 router.get("/getUsers", verifyToken, getUsers);
 router.delete("/deleteUser/:id", verifyToken, deleteUsers);
+router.get("/getUserProfile", verifyToken, getUserProfile);
+router.put("/changeUserProfile", verifyToken, changeUserProfile);
+router.put("/changePassword", verifyToken, changePassword);
 
 //news router handler
 router.post("/createNewsCategory", verifyToken, addNEwCategory);
