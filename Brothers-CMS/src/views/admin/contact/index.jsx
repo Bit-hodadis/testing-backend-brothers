@@ -23,7 +23,7 @@ const ContactUS = () => {
       }
     };
     fetch();
-  });
+  }, []);
 
   const renderRows = () => {
     return users.map((user) => (
@@ -32,10 +32,10 @@ const ContactUS = () => {
           {user.name}
         </td>
         <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
-          {user.phone}
+          {user.email}
         </td>
         <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
-          {user.email}
+          {user.phone}
         </td>
         <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
           {user.message}

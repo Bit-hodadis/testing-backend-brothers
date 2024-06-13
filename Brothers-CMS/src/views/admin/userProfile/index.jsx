@@ -46,6 +46,7 @@ const UserProfile = () => {
       } catch (error) {
         console.log(error);
         setError(true);
+        setLoading(false);
         setMessage("fetching Error");
         if (error?.response?.data?.logout) {
           navigate("/auth/sign-in", { replace: true });
