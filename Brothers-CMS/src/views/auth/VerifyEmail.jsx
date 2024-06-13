@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { FaSpinner, FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
 import { BsArrowBarRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import axiosInstance from "config/customAxios";
 
 const VerifyEmail = () => {
   const [response, setResponse] = useState(null);
@@ -14,9 +15,9 @@ const VerifyEmail = () => {
   const token = query.get("token");
 
   useEffect(() => {
-    axios
+    axiosInstance
       .post(
-        "http://localhost:5000/verifyEmail",
+        "/verifyEmail",
         {},
 
         {

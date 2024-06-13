@@ -2,7 +2,7 @@ import InputField from "components/fields/InputField";
 import { FcGoogle } from "react-icons/fc";
 import Checkbox from "components/checkbox";
 import { useState } from "react";
-import axios from "axios";
+
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";

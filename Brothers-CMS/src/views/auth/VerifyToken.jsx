@@ -7,11 +7,16 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import axiosInstance from "config/customAxios";
+import Loading from "components/Loading";
+import Notification from "components/Notification";
 
 export default function VerifyToken() {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
@@ -25,8 +30,8 @@ export default function VerifyToken() {
       try {
         const decodedToken = JSON.parse(window.atob(token.split(".")[1]));
 
-        const send = await axios.post(
-          "http://localhost:5000/resetPasswordVerify",
+        const send = await axiosInstance.post(
+          "/resetPasswordVerify",
           {},
 
           {
@@ -52,9 +57,11 @@ export default function VerifyToken() {
     e.preventDefault();
 
     try {
+      setError(false);
+      setLoading(true);
       const decodedToken = JSON.parse(window.atob(token.split(".")[1]));
-      const send = await axios.post(
-        "http://localhost:5000/resetPassword",
+      const send = await axiosInstance.post(
+        "/resetPassword",
         {
           email: decodedToken?.email,
           newPassword: newPassword,
@@ -69,6 +76,7 @@ export default function VerifyToken() {
           },
         }
       );
+      setLoading(false);
 
       setMessage(JSON.stringify(send.data));
       localStorage.setItem("email", decodedToken?.email);
@@ -76,12 +84,21 @@ export default function VerifyToken() {
       navigate("/auth/sign-in", { replace: true });
     } catch (error) {
       console.log(error);
+      setLoading(false);
+      setError(true);
       setMessage(JSON.stringify(error?.response?.data));
     }
   };
 
   return (
     <div className="mt-16 mb-16 flex h-full w-full  items-center justify-center  px-2 md:mx-0 md:px-0 lg:mb-10 lg:items-center lg:justify-start">
+      {loading ? (
+        <Loading />
+      ) : error ? (
+        <Notification type="error">Error please try again</Notification>
+      ) : (
+        ""
+      )}
       {verified === "loading" ? (
         <p>Loading</p>
       ) : verified === "error" ? (

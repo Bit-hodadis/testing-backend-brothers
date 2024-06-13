@@ -2,15 +2,20 @@ import InputField from "components/fields/InputField";
 import { FcGoogle } from "react-icons/fc";
 import Checkbox from "components/checkbox";
 import { useState } from "react";
-import axios from "axios";
+
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { BsArrow90DegLeft, BsBack } from "react-icons/bs";
+import axiosInstance from "config/customAxios";
+import Loading from "components/Loading";
+import Notification from "components/Notification";
 
 export default function Forget() {
   const [email, setEmail] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
   const onChangeEmail = (e) => {
     setEmail(e?.target?.value);
@@ -21,15 +26,21 @@ export default function Forget() {
     e.preventDefault();
 
     try {
-      const send = await axios.post("http://localhost:5000/forgetPassword", {
+      setLoading(true);
+      setError(false);
+      const send = await axiosInstance.post("/forgetPassword", {
         email,
       });
       setMessage(JSON.stringify(send.data));
       localStorage.setItem("user", send.data);
       setIsSuccess(true);
+      setLoading(false);
+
       // navigate("/admin", { replace: true });
     } catch (error) {
       console.log(error);
+      setError(true);
+      setLoading(false);
       setMessage(JSON.stringify(error?.response?.data?.error));
     }
   };
@@ -37,7 +48,13 @@ export default function Forget() {
   return (
     <div className="mt-16 mb-16 flex h-full w-full  items-center justify-center  px-2 md:mx-0 md:px-0 lg:mb-10 lg:items-center lg:justify-start">
       {/* Sign in section */}
-
+      {loading ? (
+        <Loading />
+      ) : error ? (
+        <Notification type="error">Error please try again</Notification>
+      ) : (
+        ""
+      )}
       {isSuccess ? (
         <div className="flex h-[20rem]  flex-col  justify-center gap-2 ">
           <h2 className="text-xl font-bold md:text-3xl">Link is Sent</h2>
