@@ -34,7 +34,7 @@ const createTables = async () => {
     await client.query(contactUsTable);
     console.log("tables are successfully created");
   } catch (error) {
-    await client.query("ROLLBACK");
+    if (client) await client.query("ROLLBACK");
     console.error("Error creating tables:", error);
   } finally {
     if (client) client.release();
